@@ -102,6 +102,24 @@ def run_scraper(stop_event=None):
         "https://www.dgft.gov.in/CP/",
         "https://www.indiantradeportal.in/",
         "https://www.macmap.org/",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/export-incentives-scheme-india",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/leather-export-from-india",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/toys-export-from-india",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/textile-export",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/jewelry-export-from-india",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/exports",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/nirvik-scheme",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/iec",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/rodtep-scheme",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/epcg-scheme",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/rosctl-scheme",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/letter-of-undertaking",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/gst-on-exports",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling/blogs/export-oriented-units-scheme",
+        "https://sell.amazon.in/grow-your-business/amazon-global-selling",
+        "https://www.ibef.org/blogs/indian-export-incentive-schemes",
+        "https://old.cbic.gov.in/resources//htdocs-cbec/customs/duty-drawback.pdf",
+        "https://www.indiafilings.com/learn/modified-norms-of-interest-equalization-scheme-for-msme-exporters/",
     ]
     for url in urls:
         if stop_event and stop_event.is_set():
@@ -115,7 +133,7 @@ def run_scraper(stop_event=None):
                 break
             file_name = link.split("/")[-1] or "index.html"
             if ".pdf" in file_name.lower():
-                save_path = f"../data/pdfs/{file_name}"
+                save_path = f"../data/pdf/{file_name}"
                 if not os.path.exists(save_path):
                     downloaded_file = download_pdf(link, save_path)
                     if downloaded_file and detect_changes(downloaded_file):
