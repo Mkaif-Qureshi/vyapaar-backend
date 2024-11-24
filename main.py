@@ -8,6 +8,7 @@ from app.routes.compliance_routes import router as compliance_router
 from app.routes.document_routes import router as document_router
 from app.routes.incentive_routes import router as incentive_router
 from app.routes.risk_routes import router as risk_router
+# from app.routes.document_routes import get_mistral_data , call_mistral_api
 
 app = FastAPI(title="My Application", version="1.0.0", description="An API for user management and more.")
 
@@ -29,6 +30,8 @@ app.include_router(compliance_router, prefix="/compliance", tags=["Compliance"])
 app.include_router(document_router, prefix="/documents", tags=["Documents"])
 app.include_router(incentive_router, prefix="/incentives", tags=["Incentives"])
 app.include_router(risk_router, prefix="/risks", tags=["Risks"])
+# app.include_router(document_router, prefix="/call-mistral", tags=["Mistral_resposne"])
+# app.include_router(document_router, prefix="/call-mistral", tags=["Mistral_resposne"])
 
 @app.get("/", tags=["Root"])
 def read_root():
